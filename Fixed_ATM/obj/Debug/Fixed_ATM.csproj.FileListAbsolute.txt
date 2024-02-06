@@ -1,0 +1,10 @@
+C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.csproj.AssemblyReference.cache
+C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.Form1.resources
+C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.Properties.Resources.resources
+C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.csproj.GenerateResource.cache
+C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.csproj.CoreCompileInputs.cache
+C:\Navchannia\Fixed_ATM\Fixed_ATM\bin\Debug\Fixed_ATM.exe.config
+C:\Navchannia\Fixed_ATM\Fixed_ATM\bin\Debug\Fixed_ATM.exe
+C:\Navchannia\Fixed_ATM\Fixed_ATM\bin\Debug\Fixed_ATM.pdb
+C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.exe
+C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.pdb
