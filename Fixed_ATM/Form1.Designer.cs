@@ -53,6 +53,11 @@
             this.label_money_200 = new System.Windows.Forms.Label();
             this.label_money_500 = new System.Windows.Forms.Label();
             this.label_money_1000 = new System.Windows.Forms.Label();
+            this.costTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.loadCashButton = new System.Windows.Forms.Button();
+            this.numTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.money_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.money_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.money_5)).BeginInit();
@@ -67,22 +72,22 @@
             // 
             // withdrawMoneyButton
             // 
-            this.withdrawMoneyButton.Location = new System.Drawing.Point(643, 125);
+            this.withdrawMoneyButton.Location = new System.Drawing.Point(645, 112);
             this.withdrawMoneyButton.Name = "withdrawMoneyButton";
-            this.withdrawMoneyButton.Size = new System.Drawing.Size(75, 23);
+            this.withdrawMoneyButton.Size = new System.Drawing.Size(140, 55);
             this.withdrawMoneyButton.TabIndex = 0;
-            this.withdrawMoneyButton.Text = "button1";
+            this.withdrawMoneyButton.Text = "WithdrawCash";
             this.withdrawMoneyButton.UseVisualStyleBackColor = true;
             this.withdrawMoneyButton.Click += new System.EventHandler(this.withdrawMoneyButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(640, 49);
+            this.label1.Location = new System.Drawing.Point(664, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(95, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.label1.Text = "Enter your sum";
             // 
             // withdrawMoneyTextBox
             // 
@@ -290,11 +295,58 @@
             this.label_money_1000.TabIndex = 23;
             this.label_money_1000.Text = "X 0";
             // 
+            // costTextBox
+            // 
+            this.costTextBox.Location = new System.Drawing.Point(580, 552);
+            this.costTextBox.Name = "costTextBox";
+            this.costTextBox.Size = new System.Drawing.Size(145, 22);
+            this.costTextBox.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(590, 533);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(126, 16);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Enter cost Banknote";
+            // 
+            // loadCashButton
+            // 
+            this.loadCashButton.Location = new System.Drawing.Point(673, 580);
+            this.loadCashButton.Name = "loadCashButton";
+            this.loadCashButton.Size = new System.Drawing.Size(112, 55);
+            this.loadCashButton.TabIndex = 24;
+            this.loadCashButton.Text = "LoadCash";
+            this.loadCashButton.UseVisualStyleBackColor = true;
+            this.loadCashButton.Click += new System.EventHandler(this.loadCashButton_Click);
+            // 
+            // numTextBox
+            // 
+            this.numTextBox.Location = new System.Drawing.Point(731, 552);
+            this.numTextBox.Name = "numTextBox";
+            this.numTextBox.Size = new System.Drawing.Size(145, 22);
+            this.numTextBox.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(728, 533);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 16);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Enter number Banknotes";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 760);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numTextBox);
+            this.Controls.Add(this.costTextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.loadCashButton);
             this.Controls.Add(this.label_money_1000);
             this.Controls.Add(this.label_money_500);
             this.Controls.Add(this.label_money_200);
@@ -321,6 +373,7 @@
             this.Controls.Add(this.withdrawMoneyButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.money_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.money_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.money_5)).EndInit();
@@ -362,6 +415,11 @@
         private System.Windows.Forms.Label label_money_200;
         private System.Windows.Forms.Label label_money_500;
         private System.Windows.Forms.Label label_money_1000;
+        private System.Windows.Forms.TextBox costTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button loadCashButton;
+        private System.Windows.Forms.TextBox numTextBox;
+        private System.Windows.Forms.Label label3;
     }
 }
 

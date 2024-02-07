@@ -16,6 +16,10 @@ namespace Fixed_ATM
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             ATM.StartFillList();
             ATM.LoadCash(1, 2);
             ATM.LoadCash(2, 5);
@@ -40,16 +44,11 @@ namespace Fixed_ATM
             });
             PrintCost();
         }
-
         private void withdrawMoneyButton_Click(object sender, EventArgs e)
         {
             var withdrawCash = Int32.Parse(withdrawMoneyTextBox.Text);
             if (ATM.WithdrawCash(withdrawCash))
             {
-/*                foreach (Banknote bancnote in ATM.GetBancnotes())
-                {
-                    Console.WriteLine(bancnote.cost + " X " + bancnote.number);
-                }*/
                 PrintCost();
                 PrintTottalCost();
             }
@@ -70,6 +69,15 @@ namespace Fixed_ATM
             {
                 numbersLabels[i].Text = $"X {bancnotes[i].number}";
             }
+        }
+
+        private void loadCashButton_Click(object sender, EventArgs e)
+        {
+            var cost = Int32.Parse(costTextBox.Text); 
+            var num = Int32.Parse(numTextBox.Text);
+            ATM.LoadCash(cost,num);
+            PrintCost();
+            PrintTottalCost();
         }
     }
 }

@@ -105,14 +105,5 @@ namespace Fixed_ATM
             var newBanknote = new Banknote(cost, number);
             _banknotes.Add(newBanknote);
         }
-
-        /*private static void GetCheсk(List<Banknote> banknotes)
-        {
-            Console.WriteLine("Check");
-            foreach (var banknote in banknotes)
-            {
-                Console.WriteLine($"{banknote.cost} X {banknote.number}");
-            }
-        }*/
     }
 }
