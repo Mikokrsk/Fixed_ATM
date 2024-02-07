@@ -8,3 +8,4 @@ C:\Navchannia\Fixed_ATM\Fixed_ATM\bin\Debug\Fixed_ATM.exe
 C:\Navchannia\Fixed_ATM\Fixed_ATM\bin\Debug\Fixed_ATM.pdb
 C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.exe
 C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.pdb
+C:\Navchannia\Fixed_ATM\Fixed_ATM\obj\Debug\Fixed_ATM.CheckForm.resources

@@ -13,10 +13,16 @@ namespace Fixed_ATM
 
         public static void LoadCash(int cost, int number)
         {
-            var banknote = new Banknote(cost, number);
-            _banknotes.Add(banknote);
+            foreach (var banknote in _banknotes)
+            {
+                if (banknote.cost == cost)
+                {
+                    banknote.number += number;
+                    break;
+                }
+            }
         }
-        public static List<Banknote> WithdrawCash(int sum)
+        public static bool WithdrawCash(int sum)
         {
             if (sum <= GetTotalSumCost())
             {
@@ -27,31 +33,45 @@ namespace Fixed_ATM
                     var num = sum / _banknotes[i].cost;
                     if (num >= 1)
                     {
-                        if (_banknotes[i].number >= num)
+                        if (_banknotes[i].number > num)
                         {
                             sum -= _banknotes[i].cost * num;
-                            _banknotes[i].number -= num;
-                            withdrawnMoney.Add(new Banknote(_banknotes[i].cost, num));
                         }
                         else
                         {
                             num = _banknotes[i].number;
                             sum -= _banknotes[i].cost * num;
-                            _banknotes[i].number = 0;
-                            withdrawnMoney.Add(new Banknote(_banknotes[i].cost, num));
                         }
+                        withdrawnMoney.Add(new Banknote(_banknotes[i].cost, num));
                     }
                     else
                     {
                         withdrawnMoney.Add(new Banknote(_banknotes[i].cost, 0));
                     }
                 }
-                Console.WriteLine("Залишок = " + sum);
-                return withdrawnMoney;
+
+                if (sum != 0)
+                {
+                    Console.WriteLine("Залишок = " + sum);
+                    return false;
+                }
+                else
+                {
+                    withdrawnMoney.Reverse();
+                    for (int i = _banknotes.Count - 1; i >= 0; i--)
+                    {
+                        _banknotes[i].number -= withdrawnMoney[i].number;
+                    }
+                    CheckForm checkForm = new CheckForm();
+                    checkForm.PrintCheсk(withdrawnMoney);
+                    checkForm.ShowDialog();
+                   
+                    return true;
+                }
             }
             else
             {
-                return null;
+                return false;
             }
         }
         public static int GetTotalSumCost()
@@ -67,5 +87,32 @@ namespace Fixed_ATM
         {
             return _banknotes;
         }
+        public static void StartFillList()
+        {
+            CreateNewBanknote(1, 0);
+            CreateNewBanknote(2, 0);
+            CreateNewBanknote(5, 0);
+            CreateNewBanknote(10, 0);
+            CreateNewBanknote(20, 0);
+            CreateNewBanknote(50, 0);
+            CreateNewBanknote(100, 0);
+            CreateNewBanknote(200, 0);
+            CreateNewBanknote(500, 0);
+            CreateNewBanknote(1000, 0);
+        }
+        private static void CreateNewBanknote(int cost, int number)
+        {
+            var newBanknote = new Banknote(cost, number);
+            _banknotes.Add(newBanknote);
+        }
+
+        /*private static void GetCheсk(List<Banknote> banknotes)
+        {
+            Console.WriteLine("Check");
+            foreach (var banknote in banknotes)
+            {
+                Console.WriteLine($"{banknote.cost} X {banknote.number}");
+            }
+        }*/
     }
 }

@@ -16,14 +16,12 @@ namespace Fixed_ATM
         public Form1()
         {
             InitializeComponent();
+            ATM.StartFillList();
             ATM.LoadCash(1, 2);
             ATM.LoadCash(2, 5);
             ATM.LoadCash(5, 2);
-            ATM.LoadCash(10, 0);
-            ATM.LoadCash(20, 0);
-            ATM.LoadCash(50, 0);
+            ATM.LoadCash(20, 5);
             ATM.LoadCash(100, 10);
-            ATM.LoadCash(200, 0);
             ATM.LoadCash(500, 1);
             ATM.LoadCash(1000, 1);
             PrintTottalCost();
@@ -45,13 +43,20 @@ namespace Fixed_ATM
 
         private void withdrawMoneyButton_Click(object sender, EventArgs e)
         {
-           List<Banknote> withdrawnMoney = ATM.WithdrawCash(Int32.Parse(withdrawMoneyTextBox.Text));
-            foreach (Banknote bancnote in withdrawnMoney)
+            var withdrawCash = Int32.Parse(withdrawMoneyTextBox.Text);
+            if (ATM.WithdrawCash(withdrawCash))
             {
-                Console.WriteLine(bancnote.cost +" X "+bancnote.number);
+/*                foreach (Banknote bancnote in ATM.GetBancnotes())
+                {
+                    Console.WriteLine(bancnote.cost + " X " + bancnote.number);
+                }*/
+                PrintCost();
+                PrintTottalCost();
             }
-            PrintCost();
-            PrintTottalCost();
+            else
+            {
+                Console.WriteLine("error");
+            }
         }
 
         private void PrintTottalCost()
@@ -61,7 +66,7 @@ namespace Fixed_ATM
         private void PrintCost()
         {
             var bancnotes = ATM.GetBancnotes();
-            for(int i = 0;i<bancnotes.Count;i++)
+            for (int i = 0; i < bancnotes.Count; i++)
             {
                 numbersLabels[i].Text = $"X {bancnotes[i].number}";
             }
