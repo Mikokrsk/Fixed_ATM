@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Fixed_ATM
 {
@@ -13,18 +14,25 @@ namespace Fixed_ATM
 
         public static void LoadCash(int cost, int number)
         {
-            foreach (var banknote in _banknotes)
+            if (number > 0)
             {
-                if (banknote.cost == cost)
+                foreach (var banknote in _banknotes)
                 {
-                    banknote.number += number;
-                    break;
+                    if (banknote.cost == cost)
+                    {
+                        banknote.number += number;
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Error load cash");
             }
         }
         public static bool WithdrawCash(int sum)
         {
-            if (sum <= GetTotalSumCost())
+            if (sum <= GetTotalSumCost() && sum > 0)
             {
                 List<Banknote> withdrawnMoney = new List<Banknote>();
 
@@ -53,6 +61,7 @@ namespace Fixed_ATM
                 if (sum != 0)
                 {
                     Console.WriteLine("Залишок = " + sum);
+                    MessageBox.Show($"Error you cannot withdraw the specified amount of money because the balance is >0 (balance = {sum}) ");
                     return false;
                 }
                 else
@@ -65,12 +74,13 @@ namespace Fixed_ATM
                     CheckForm checkForm = new CheckForm();
                     checkForm.PrintCheсk(withdrawnMoney);
                     checkForm.ShowDialog();
-                   
+
                     return true;
                 }
             }
             else
             {
+                MessageBox.Show("Error sum > TotalCost or sum <= 0");
                 return false;
             }
         }

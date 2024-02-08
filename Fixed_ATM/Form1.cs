@@ -46,21 +46,29 @@ namespace Fixed_ATM
         }
         private void withdrawMoneyButton_Click(object sender, EventArgs e)
         {
-            var withdrawCash = Int32.Parse(withdrawMoneyTextBox.Text);
-            if (ATM.WithdrawCash(withdrawCash))
+            try
             {
-                PrintCost();
-                PrintTottalCost();
+                var withdrawCash = Int32.Parse(withdrawMoneyTextBox.Text);
+                if (ATM.WithdrawCash(withdrawCash))
+                {
+                    PrintCost();
+                    PrintTottalCost();
+                }
             }
-            else
+            catch
             {
-                Console.WriteLine("error");
+                MessageBox.Show("Error sum is not valid");
             }
         }
 
         private void PrintTottalCost()
         {
             TotalCostLabel.Text = $"TotalCost : {ATM.GetTotalSumCost()}";
+            if(ATM.GetTotalSumCost()<=0)
+            {
+                MessageBox.Show("TotalCost = 0");
+                System.Windows.Forms.Application.Exit();
+            }
         }
         private void PrintCost()
         {
@@ -73,11 +81,18 @@ namespace Fixed_ATM
 
         private void loadCashButton_Click(object sender, EventArgs e)
         {
-            var cost = Int32.Parse(costTextBox.Text); 
-            var num = Int32.Parse(numTextBox.Text);
-            ATM.LoadCash(cost,num);
-            PrintCost();
-            PrintTottalCost();
+            try
+            {
+                var cost = Int32.Parse(costTextBox.Text);
+                var num = Int32.Parse(numTextBox.Text);
+                ATM.LoadCash(cost, num);
+                PrintCost();
+                PrintTottalCost();
+            }
+            catch
+            {
+                MessageBox.Show("Error load cash");
+            }
         }
     }
 }

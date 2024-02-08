@@ -21,7 +21,7 @@ namespace Fixed_ATM
         {
             checkListBox.Items.Clear();
             checkListBox.Items.Add("\tCheck\n");
-            checkListBox.Items.Add("Banknote\tnum\tsum");
+            checkListBox.Items.Add("Banknote\tnum\t\tsum");
             banknotes.Reverse();
             int totalSum = 0;
             foreach (var banknote in banknotes)
